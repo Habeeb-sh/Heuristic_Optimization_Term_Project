@@ -1,0 +1,303 @@
+KNAPSACK PROBLEM - GENETIC ALGORITHM SOLVER
+==================================================
+Setting penalty α = 0.12
+Loaded problem: 500 items, max weight: 1000000
+Value range: 4631 - 12286
+Weight range: 4601 - 12240
+
+Starting Genetic Algorithm...
+Population size: 200
+Mutation rate: 0.02
+Crossover rate: 0.8
+Max generations: 1000
+Penalty coefficient α: 0.12
+Generation   0: Best=1893804.2, Avg=1412469.8, Feasible=50/200
+Mutation rate: 0.02
+Crossover rate: 0.8
+Mutation rate: 0.02
+Mutation rate: 0.02
+Mutation rate: 0.02
+Crossover rate: 0.8
+Max generations: 1000
+Penalty coefficient α: 0.12
+Generation   0: Best=1893804.2, Avg=1412469.8, Feasible=50/200
+Mutation rate: 0.02
+Crossover rate: 0.8
+Max generations: 1000
+Penalty coefficient α: 0.12
+Mutation rate: 0.02
+Crossover rate: 0.8
+Mutation rate: 0.02
+Mutation rate: 0.02
+Crossover rate: 0.8
+Max generations: 1000
+Penalty coefficient α: 0.12
+Generation   0: Best=1893804.2, Avg=1412469.8, Feasible=50/200
+Generation  50: Best=3049317.7, Avg=2612459.7, Feasible=37/200
+Generation 100: Best=3329624.6, Avg=2760405.0, Feasible=41/200
+Generation 150: Best=3430940.3, Avg=2877467.6, Feasible=40/200
+Generation 200: Best=3537885.7, Avg=2994054.5, Feasible=36/200
+Generation 250: Best=3571813.1, Avg=3013125.3, Feasible=37/200
+Generation 300: Best=3581570.6, Avg=3052073.9, Feasible=35/200
+Generation 350: Best=3608226.6, Avg=3006456.0, Feasible=40/200
+Generation 400: Best=3616237.4, Avg=3015454.7, Feasible=40/200
+Generation 450: Best=3621149.9, Avg=3121083.7, Feasible=32/200
+Generation 500: Best=3629547.5, Avg=2864236.8, Feasible=53/200
+Generation 550: Best=3636210.6, Avg=2949018.3, Feasible=47/200
+Generation 600: Best=3636210.6, Avg=3113902.4, Feasible=34/200
+Generation 650: Best=3656011.2, Avg=2911548.6, Feasible=50/200
+Generation 700: Best=3657835.8, Avg=3125197.1, Feasible=34/200
+Generation 750: Best=3680825.2, Avg=3213892.8, Feasible=28/200
+Generation 800: Best=3700136.7, Avg=3128251.7, Feasible=36/200
+Generation 850: Best=3713632.6, Avg=3158438.8, Feasible=34/200
+Generation 900: Best=3713632.6, Avg=3190942.5, Feasible=32/200
+Generation 950: Best=3714556.2, Avg=3117187.6, Feasible=38/200
+Generation 999: Best=3717922.5, Avg=3120801.5, Feasible=38/200
+Best solution exceeds weight limit, attempting repair...
+
+BEST SOLUTION FOUND:
+Total Value: 1004189
+Solution: 1 0 1 1 0 1 0 1 0 0 0 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 1 1 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 1 0 1 1 0 1 0 1 0 1 0 1 0 1 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 1 1 0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 1 0 1 0 1 0 1 0 0 0 1 0 0 0 0 1 1 0 1 1 1 0 0 0 0 1 0 1 1 0 0 0 0 0 0 1 1 0 0 1 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 1 0 1 1 0 1 1 0 0 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 1 0 0 1 0 0 1 0 1 0 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 1 0 1 1 1 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 1 0 1 0 1 1 1 1 0 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 0 0 1 0 0 0 1 0 0 0 0 0 1 0 1 1 0 0 0 0 0 1 1 1 0 1 0 1 0 1 0 0 0 1 0 0 0 1 1 0 0 0 1 1 0 0 0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 1 0 0 0 0 1 0 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 0 1 1 0 1 0 0 0 1 0 0 1 0 1 0 1 0 0 0 0 1 0 0 0 1 0 0 0
+
+Details:
+Total Weight: 996836/1000000
+Selected Items: [0, 2, 3, 5, 7, 14, 16, 20, 22, 32, 34, 35, 40, 46, 51, 53, 54, 56, 58, 60, 62, 64, 72, 74, 80, 86, 87, 91, 97, 101, 105, 107, 116, 122, 126, 131, 134, 136, 138, 140, 144, 149, 150, 152, 153, 154, 159, 161, 162, 169, 170, 173, 181, 182, 183, 189, 194, 199, 203, 208, 211, 213, 214, 216, 217, 223, 227, 231, 235, 236, 239, 242, 244, 246, 255, 256, 263, 265, 266, 267, 269, 271, 281, 283, 287, 295, 300, 303, 307, 316, 318, 320, 328, 330, 331, 332, 335, 339, 341, 342, 343, 345, 347, 348, 349, 350, 354, 356, 357, 362, 365, 369, 373, 379, 381, 382, 388, 389, 390, 392, 394, 396, 400, 404, 405, 409, 410, 417, 422, 425, 428, 433, 436, 438, 439, 452, 457, 459, 460, 463, 464, 465, 467, 473, 474, 476, 480, 483, 485, 487, 492, 496]
+Weight utilization: 99.7%
+Constraint satisfied: ✅ Yes
+
+Selected Items Details:
+  Item 0: value=7432, weight=7381, ratio=1.007
+  Item 2: value=6581, weight=6530, ratio=1.008
+  Item 3: value=6448, weight=6399, ratio=1.008
+  Item 5: value=6642, weight=6591, ratio=1.008
+  Item 7: value=5324, weight=5275, ratio=1.009
+  Item 14: value=6352, weight=6304, ratio=1.008
+  Item 16: value=6140, weight=6089, ratio=1.008
+  Item 20: value=6668, weight=6623, ratio=1.007
+  Item 22: value=6887, weight=6841, ratio=1.007
+  Item 32: value=7886, weight=7833, ratio=1.007
+  Item 34: value=7496, weight=7445, ratio=1.007
+  Item 35: value=8394, weight=8338, ratio=1.007
+  Item 40: value=7353, weight=7304, ratio=1.007
+  Item 46: value=6987, weight=6938, ratio=1.007
+  Item 51: value=5972, weight=5924, ratio=1.008
+  Item 53: value=7105, weight=7057, ratio=1.007
+  Item 54: value=7767, weight=7716, ratio=1.007
+  Item 56: value=6236, weight=6193, ratio=1.007
+  Item 58: value=6859, weight=6813, ratio=1.007
+  Item 60: value=5532, weight=5483, ratio=1.009
+  Item 62: value=4928, weight=4889, ratio=1.008
+  Item 64: value=6796, weight=6748, ratio=1.007
+  Item 72: value=6773, weight=6724, ratio=1.007
+  Item 74: value=5023, weight=4979, ratio=1.009
+  Item 80: value=8078, weight=8025, ratio=1.007
+  Item 86: value=7129, weight=7082, ratio=1.007
+  Item 87: value=6867, weight=6823, ratio=1.006
+  Item 91: value=7655, weight=7605, ratio=1.007
+  Item 97: value=7460, weight=7409, ratio=1.007
+  Item 101: value=7659, weight=7610, ratio=1.006
+  Item 105: value=7086, weight=7035, ratio=1.007
+  Item 107: value=7117, weight=7069, ratio=1.007
+  Item 116: value=7751, weight=7698, ratio=1.007
+  Item 122: value=6659, weight=6609, ratio=1.008
+  Item 126: value=5611, weight=5562, ratio=1.009
+  Item 131: value=4921, weight=4884, ratio=1.008
+  Item 134: value=5754, weight=5707, ratio=1.008
+  Item 136: value=6033, weight=5984, ratio=1.008
+  Item 138: value=7770, weight=7717, ratio=1.007
+  Item 140: value=5618, weight=5570, ratio=1.009
+  Item 144: value=5927, weight=5885, ratio=1.007
+  Item 149: value=5723, weight=5673, ratio=1.009
+  Item 150: value=6528, weight=6486, ratio=1.006
+  Item 152: value=6724, weight=6680, ratio=1.007
+  Item 153: value=5931, weight=5883, ratio=1.008
+  Item 154: value=6127, weight=6087, ratio=1.007
+  Item 159: value=6479, weight=6430, ratio=1.008
+  Item 161: value=7196, weight=7146, ratio=1.007
+  Item 162: value=6086, weight=6036, ratio=1.008
+  Item 169: value=8004, weight=7952, ratio=1.007
+  Item 170: value=6312, weight=6263, ratio=1.008
+  Item 173: value=6553, weight=6504, ratio=1.008
+  Item 181: value=5219, weight=5176, ratio=1.008
+  Item 182: value=7976, weight=7923, ratio=1.007
+  Item 183: value=6342, weight=6295, ratio=1.007
+  Item 189: value=7031, weight=6981, ratio=1.007
+  Item 194: value=5812, weight=5765, ratio=1.008
+  Item 199: value=6900, weight=6854, ratio=1.007
+  Item 203: value=7883, weight=7830, ratio=1.007
+  Item 208: value=7224, weight=7177, ratio=1.007
+  Item 211: value=5321, weight=5286, ratio=1.007
+  Item 213: value=5238, weight=5189, ratio=1.009
+  Item 214: value=6748, weight=6697, ratio=1.008
+  Item 216: value=6690, weight=6639, ratio=1.008
+  Item 217: value=5696, weight=5645, ratio=1.009
+  Item 223: value=6995, weight=6943, ratio=1.007
+  Item 227: value=6996, weight=6947, ratio=1.007
+  Item 231: value=6233, weight=6182, ratio=1.008
+  Item 235: value=5868, weight=5817, ratio=1.009
+  Item 236: value=7206, weight=7159, ratio=1.007
+  Item 239: value=8515, weight=8460, ratio=1.007
+  Item 242: value=7108, weight=7054, ratio=1.008
+  Item 244: value=7535, weight=7483, ratio=1.007
+  Item 246: value=7145, weight=7098, ratio=1.007
+  Item 255: value=5429, weight=5393, ratio=1.007
+  Item 256: value=6764, weight=6714, ratio=1.007
+  Item 263: value=7540, weight=7490, ratio=1.007
+  Item 265: value=5123, weight=5075, ratio=1.009
+  Item 266: value=5508, weight=5467, ratio=1.007
+  Item 267: value=7557, weight=7506, ratio=1.007
+  Item 269: value=6973, weight=6924, ratio=1.007
+  Item 271: value=7442, weight=7388, ratio=1.007
+  Item 281: value=7428, weight=7377, ratio=1.007
+  Item 283: value=6450, weight=6401, ratio=1.008
+  Item 287: value=7444, weight=7396, ratio=1.006
+  Item 295: value=7323, weight=7271, ratio=1.007
+  Item 300: value=7015, weight=6960, ratio=1.008
+  Item 303: value=7577, weight=7527, ratio=1.007
+  Item 307: value=5786, weight=5738, ratio=1.008
+  Item 316: value=5412, weight=5369, ratio=1.008
+  Item 318: value=6774, weight=6727, ratio=1.007
+  Item 320: value=6921, weight=6874, ratio=1.007
+  Item 328: value=7308, weight=7256, ratio=1.007
+  Item 330: value=7648, weight=7597, ratio=1.007
+  Item 331: value=7764, weight=7714, ratio=1.006
+  Item 332: value=5117, weight=5070, ratio=1.009
+  Item 335: value=5974, weight=5925, ratio=1.008
+  Item 339: value=5403, weight=5359, ratio=1.008
+  Item 341: value=5518, weight=5465, ratio=1.010
+  Item 342: value=6272, weight=6229, ratio=1.007
+  Item 343: value=6458, weight=6409, ratio=1.008
+  Item 345: value=7640, weight=7589, ratio=1.007
+  Item 347: value=7665, weight=7613, ratio=1.007
+  Item 348: value=7097, weight=7047, ratio=1.007
+  Item 349: value=7762, weight=7712, ratio=1.006
+  Item 350: value=5718, weight=5669, ratio=1.009
+  Item 354: value=7327, weight=7276, ratio=1.007
+  Item 356: value=7638, weight=7585, ratio=1.007
+  Item 357: value=7426, weight=7376, ratio=1.007
+  Item 362: value=5307, weight=5259, ratio=1.009
+  Item 365: value=7338, weight=7286, ratio=1.007
+  Item 369: value=6199, weight=6149, ratio=1.008
+  Item 373: value=5025, weight=4982, ratio=1.009
+  Item 379: value=6529, weight=6480, ratio=1.008
+  Item 381: value=6565, weight=6518, ratio=1.007
+  Item 382: value=5513, weight=5463, ratio=1.009
+  Item 388: value=5416, weight=5377, ratio=1.007
+  Item 389: value=8195, weight=8142, ratio=1.007
+  Item 390: value=7871, weight=7819, ratio=1.007
+  Item 392: value=6252, weight=6202, ratio=1.008
+  Item 394: value=5428, weight=5381, ratio=1.009
+  Item 396: value=5647, weight=5595, ratio=1.009
+  Item 400: value=8209, weight=8156, ratio=1.006
+  Item 404: value=6824, weight=6774, ratio=1.007
+  Item 405: value=7982, weight=7930, ratio=1.007
+  Item 409: value=7220, weight=7171, ratio=1.007
+  Item 410: value=6171, weight=6121, ratio=1.008
+  Item 417: value=6375, weight=6329, ratio=1.007
+  Item 422: value=7539, weight=7489, ratio=1.007
+  Item 425: value=6715, weight=6672, ratio=1.006
+  Item 428: value=4824, weight=4785, ratio=1.008
+  Item 433: value=5319, weight=5276, ratio=1.008
+  Item 436: value=4812, weight=4774, ratio=1.008
+  Item 438: value=6071, weight=6028, ratio=1.007
+  Item 439: value=7006, weight=6959, ratio=1.007
+  Item 452: value=6015, weight=5971, ratio=1.007
+  Item 457: value=5213, weight=5164, ratio=1.009
+  Item 459: value=6562, weight=6510, ratio=1.008
+  Item 460: value=5826, weight=5778, ratio=1.008
+  Item 463: value=7221, weight=7172, ratio=1.007
+  Item 464: value=5909, weight=5862, ratio=1.008
+  Item 465: value=6886, weight=6834, ratio=1.008
+  Item 467: value=4631, weight=4601, ratio=1.007
+  Item 473: value=7759, weight=7706, ratio=1.007
+  Item 422: value=7539, weight=7489, ratio=1.007
+  Item 425: value=6715, weight=6672, ratio=1.006
+  Item 428: value=4824, weight=4785, ratio=1.008
+  Item 433: value=5319, weight=5276, ratio=1.008
+  Item 436: value=4812, weight=4774, ratio=1.008
+  Item 438: value=6071, weight=6028, ratio=1.007
+  Item 439: value=7006, weight=6959, ratio=1.007
+  Item 452: value=6015, weight=5971, ratio=1.007
+  Item 457: value=5213, weight=5164, ratio=1.009
+  Item 459: value=6562, weight=6510, ratio=1.008
+  Item 460: value=5826, weight=5778, ratio=1.008
+  Item 463: value=7221, weight=7172, ratio=1.007
+  Item 464: value=5909, weight=5862, ratio=1.008
+  Item 465: value=6886, weight=6834, ratio=1.008
+  Item 467: value=4631, weight=4601, ratio=1.007
+  Item 473: value=7759, weight=7706, ratio=1.007
+  Item 425: value=6715, weight=6672, ratio=1.006
+  Item 428: value=4824, weight=4785, ratio=1.008
+  Item 433: value=5319, weight=5276, ratio=1.008
+  Item 436: value=4812, weight=4774, ratio=1.008
+  Item 438: value=6071, weight=6028, ratio=1.007
+  Item 439: value=7006, weight=6959, ratio=1.007
+  Item 452: value=6015, weight=5971, ratio=1.007
+  Item 457: value=5213, weight=5164, ratio=1.009
+  Item 459: value=6562, weight=6510, ratio=1.008
+  Item 460: value=5826, weight=5778, ratio=1.008
+  Item 463: value=7221, weight=7172, ratio=1.007
+  Item 464: value=5909, weight=5862, ratio=1.008
+  Item 465: value=6886, weight=6834, ratio=1.008
+  Item 467: value=4631, weight=4601, ratio=1.007
+  Item 473: value=7759, weight=7706, ratio=1.007
+  Item 439: value=7006, weight=6959, ratio=1.007
+  Item 452: value=6015, weight=5971, ratio=1.007
+  Item 457: value=5213, weight=5164, ratio=1.009
+  Item 459: value=6562, weight=6510, ratio=1.008
+  Item 460: value=5826, weight=5778, ratio=1.008
+  Item 463: value=7221, weight=7172, ratio=1.007
+  Item 464: value=5909, weight=5862, ratio=1.008
+  Item 465: value=6886, weight=6834, ratio=1.008
+  Item 467: value=4631, weight=4601, ratio=1.007
+  Item 473: value=7759, weight=7706, ratio=1.007
+  Item 457: value=5213, weight=5164, ratio=1.009
+  Item 459: value=6562, weight=6510, ratio=1.008
+  Item 460: value=5826, weight=5778, ratio=1.008
+  Item 463: value=7221, weight=7172, ratio=1.007
+  Item 464: value=5909, weight=5862, ratio=1.008
+  Item 465: value=6886, weight=6834, ratio=1.008
+  Item 467: value=4631, weight=4601, ratio=1.007
+  Item 473: value=7759, weight=7706, ratio=1.007
+  Item 464: value=5909, weight=5862, ratio=1.008
+  Item 465: value=6886, weight=6834, ratio=1.008
+  Item 467: value=4631, weight=4601, ratio=1.007
+  Item 473: value=7759, weight=7706, ratio=1.007
+  Item 467: value=4631, weight=4601, ratio=1.007
+  Item 473: value=7759, weight=7706, ratio=1.007
+  Item 473: value=7759, weight=7706, ratio=1.007
+  Item 474: value=6345, weight=6296, ratio=1.008
+  Item 476: value=5128, weight=5087, ratio=1.008
+  Item 480: value=6672, weight=6620, ratio=1.008
+  Item 483: value=6126, weight=6078, ratio=1.008
+  Item 485: value=5882, weight=5831, ratio=1.009
+  Item 476: value=5128, weight=5087, ratio=1.008
+  Item 480: value=6672, weight=6620, ratio=1.008
+  Item 483: value=6126, weight=6078, ratio=1.008
+  Item 476: value=5128, weight=5087, ratio=1.008
+  Item 480: value=6672, weight=6620, ratio=1.008
+  Item 476: value=5128, weight=5087, ratio=1.008
+  Item 476: value=5128, weight=5087, ratio=1.008
+  Item 480: value=6672, weight=6620, ratio=1.008
+  Item 483: value=6126, weight=6078, ratio=1.008
+  Item 485: value=5882, weight=5831, ratio=1.009
+  Item 476: value=5128, weight=5087, ratio=1.008
+  Item 480: value=6672, weight=6620, ratio=1.008
+  Item 483: value=6126, weight=6078, ratio=1.008
+  Item 485: value=5882, weight=5831, ratio=1.009
+  Item 476: value=5128, weight=5087, ratio=1.008
+  Item 480: value=6672, weight=6620, ratio=1.008
+  Item 483: value=6126, weight=6078, ratio=1.008
+  Item 476: value=5128, weight=5087, ratio=1.008
+  Item 480: value=6672, weight=6620, ratio=1.008
+  Item 476: value=5128, weight=5087, ratio=1.008
+  Item 476: value=5128, weight=5087, ratio=1.008
+  Item 480: value=6672, weight=6620, ratio=1.008
+  Item 483: value=6126, weight=6078, ratio=1.008
+  Item 485: value=5882, weight=5831, ratio=1.009
+  Item 487: value=7550, weight=7500, ratio=1.007
+  Item 492: value=6019, weight=5970, ratio=1.008
+  Item 496: value=7872, weight=7820, ratio=1.007
+
+Algorithm ran for 1000 generations
+Done!
