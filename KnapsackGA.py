@@ -393,7 +393,7 @@ def main():
     )
     
     # Load problem
-    filename = "ks_500"
+    filename = "ks_40_0"
     ga.load_input(filename)
     
     # Solve the problem

@@ -1,0 +1,60 @@
+KNAPSACK PROBLEM - GENETIC ALGORITHM SOLVER
+==================================================
+Setting penalty α = 0.90
+Loaded problem: 40 items, max weight: 1000000
+Value range: 10002 - 90001
+Weight range: 10001 - 90000
+
+Starting Genetic Algorithm...
+Population size: 200
+Mutation rate: 0.02
+Crossover rate: 0.8
+Max generations: 1000
+Penalty coefficient α: 0.90
+Generation   0: Best=1021708.3, Avg=789173.0, Feasible=184/200
+Generation  50: Best=1107357.3, Avg=1074458.7, Feasible=39/200
+Generation 100: Best=1107357.3, Avg=1072515.6, Feasible=39/200
+Early stopping at generation 115 (no improvement for 101 generations)
+Best solution exceeds weight limit, attempting repair...
+
+BEST SOLUTION FOUND:
+Total Value: 921268
+Solution: 0 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+
+Details:
+Total Weight: 921070/1000000
+Selected Items: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
+Weight utilization: 92.1%
+Constraint satisfied: ✅ Yes
+
+Selected Items Details:
+  Item 2: value=10002, weight=10001, ratio=1.000
+  Item 4: value=10254, weight=10252, ratio=1.000
+  Item 6: value=10506, weight=10503, ratio=1.000
+  Item 8: value=10758, weight=10754, ratio=1.000
+  Item 10: value=11010, weight=11005, ratio=1.000
+  Item 12: value=11262, weight=11256, ratio=1.001
+  Item 14: value=11514, weight=11507, ratio=1.001
+  Item 16: value=11766, weight=11758, ratio=1.001
+  Item 18: value=12018, weight=12009, ratio=1.001
+  Item 20: value=12270, weight=12260, ratio=1.001
+  Item 22: value=12522, weight=12511, ratio=1.001
+  Item 24: value=12774, weight=12762, ratio=1.001
+  Item 25: value=86751, weight=86750, ratio=1.000
+  Item 26: value=13026, weight=13013, ratio=1.001
+  Item 27: value=86501, weight=86500, ratio=1.000
+  Item 28: value=13278, weight=13264, ratio=1.001
+  Item 29: value=86251, weight=86250, ratio=1.000
+  Item 30: value=13530, weight=13515, ratio=1.001
+  Item 31: value=86001, weight=86000, ratio=1.000
+  Item 32: value=13782, weight=13766, ratio=1.001
+  Item 33: value=85751, weight=85750, ratio=1.000
+  Item 34: value=14034, weight=14017, ratio=1.001
+  Item 35: value=85501, weight=85500, ratio=1.000
+  Item 36: value=14286, weight=14268, ratio=1.001
+  Item 37: value=85251, weight=85250, ratio=1.000
+  Item 38: value=14538, weight=14519, ratio=1.001
+  Item 39: value=86131, weight=86130, ratio=1.000
+
+Algorithm ran for 116 generations
+Done!
