@@ -1,0 +1,18 @@
+==================================================
+Run Results for ks_60_0
+Total Value: 90000
+Total Weight: 90001/100000
+Solution: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Selected Items: [0]
+Weight utilization: 90.0%
+Constraint satisfied: ✅ Yes
+
+Selected Items Details:
+  Item 0: value=90000, weight=90001, ratio=1.000
+
+Generations Run: 104
+Best Fitness History (last 5): [99974.0, 99974.0, 99974.0, 99974.0, 99974.0]
+Average Fitness History (last 5): [-290387.625, -206033.545, -252326.935, -225496.79, -244181.425]
+Feasible Count History (last 5): [46, 55, 48, 49, 39]
+==================================================
+

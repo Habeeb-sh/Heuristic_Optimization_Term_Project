@@ -1,0 +1,19 @@
+==================================================
+Run Results for ks_4_0
+Total Value: 19
+Total Weight: 11/11
+Solution: 0 0 1 1
+Selected Items: [2, 3]
+Weight utilization: 100.0%
+Constraint satisfied: ✅ Yes
+
+Selected Items Details:
+  Item 2: value=15, weight=8, ratio=1.875
+  Item 3: value=4, weight=3, ratio=1.333
+
+Generations Run: 102
+Best Fitness History (last 5): [19, 19, 19, 19, 19]
+Average Fitness History (last 5): [17.115, 16.796363636363637, 16.793636363636363, 16.142272727272726, 16.36090909090909]
+Feasible Count History (last 5): [190, 189, 192, 188, 188]
+==================================================
+

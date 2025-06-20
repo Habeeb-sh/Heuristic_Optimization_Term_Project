@@ -1,28 +1,8 @@
-KNAPSACK PROBLEM - GENETIC ALGORITHM SOLVER
 ==================================================
-Setting penalty α = 0.90
-Loaded problem: 40 items, max weight: 1000000
-Value range: 10002 - 90001
-Weight range: 10001 - 90000
-
-Starting Genetic Algorithm...
-Population size: 200
-Mutation rate: 0.02
-Crossover rate: 0.8
-Max generations: 1000
-Penalty coefficient α: 0.90
-Generation   0: Best=1021708.3, Avg=789173.0, Feasible=184/200
-Generation  50: Best=1107357.3, Avg=1074458.7, Feasible=39/200
-Generation 100: Best=1107357.3, Avg=1072515.6, Feasible=39/200
-Early stopping at generation 115 (no improvement for 101 generations)
-Best solution exceeds weight limit, attempting repair...
-
-BEST SOLUTION FOUND:
+Run Results for ks_40_0
 Total Value: 921268
-Solution: 0 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-
-Details:
 Total Weight: 921070/1000000
+Solution: 0 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 Selected Items: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
 Weight utilization: 92.1%
 Constraint satisfied: ✅ Yes
@@ -56,5 +36,9 @@ Selected Items Details:
   Item 38: value=14538, weight=14519, ratio=1.001
   Item 39: value=86131, weight=86130, ratio=1.000
 
-Algorithm ran for 116 generations
-Done!
+Generations Run: 114
+Best Fitness History (last 5): [1107357.2843, 1107357.2843, 1107357.2843, 1107357.2843, 1107357.2843]
+Average Fitness History (last 5): [1073996.2659526, 1077008.84484125, 1073225.9093368999, 1068690.0814464, 1070106.7343517]
+Feasible Count History (last 5): [38, 36, 39, 45, 43]
+==================================================
+

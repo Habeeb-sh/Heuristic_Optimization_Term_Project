@@ -6,7 +6,7 @@ class KnapsackGA:
                  crossover_rate=0.8, max_generations=500,
                  alpha: float = None):
         """
-        Initialize the Genetic Algorithm for Knapsack Problem
+        Optimized Genetic Algorithm for Knapsack Problem
         
         Args:
             population_size: Number of chromosomes in each generation
@@ -26,6 +26,7 @@ class KnapsackGA:
         self.max_weight = 0
         self.values = []
         self.weights = []
+        self.value_weight_ratio = []
         
     def load_input(self, filename: str) -> None:
         """
@@ -53,9 +54,11 @@ class KnapsackGA:
                     self.values.append(value)
                     self.weights.append(weight)
                 
+                # Precompute value-to-weight ratios
+                self.value_weight_ratio = [v/w for v, w in zip(self.values, self.weights)]
+                
                 # Set penalty coefficient if not provided
                 if self.alpha is None:
-                    # Use a much higher penalty - should be at least max_value/max_weight
                     max_value = max(self.values)
                     self.alpha = max_value / self.max_weight * 10  # Strong penalty
                     print(f"Setting penalty α = {self.alpha:.2f}")
@@ -65,7 +68,7 @@ class KnapsackGA:
                 print(f"Weight range: {min(self.weights)} - {max(self.weights)}")
                 
         except FileNotFoundError:
-            print(f"❌ File {filename} not found!")
+            print(f"File {filename} not found!")
             # Create sample data for testing
             self.create_sample_data()
             
@@ -76,6 +79,7 @@ class KnapsackGA:
         self.max_weight = 5
         self.values = [10, 40, 30, 50]
         self.weights = [5, 4, 6, 3]
+        self.value_weight_ratio = [v/w for v, w in zip(self.values, self.weights)]
         if self.alpha is None:
             self.alpha = 20.0  # Strong penalty for sample data
         print(f"Sample problem: {self.n_items} items, max weight: {self.max_weight}")
@@ -84,17 +88,17 @@ class KnapsackGA:
     def create_smart_chromosome(self) -> List[int]:
         """
         Create a chromosome using greedy heuristic as starting point
-        This helps generate feasible solutions more often
         """
-        # Calculate value-to-weight ratio for each item
-        ratios = [(i, self.values[i] / self.weights[i]) for i in range(self.n_items)]
-        ratios.sort(key=lambda x: x[1], reverse=True)  # Sort by ratio descending
+        # Sort items by value-to-weight ratio descending
+        sorted_indices = sorted(range(self.n_items), 
+                               key=lambda i: self.value_weight_ratio[i], 
+                               reverse=True)
         
         chromosome = [0] * self.n_items
         current_weight = 0
         
         # Greedily select items with best ratios that fit
-        for item_idx, _ in ratios:
+        for item_idx in sorted_indices:
             if current_weight + self.weights[item_idx] <= self.max_weight:
                 chromosome[item_idx] = 1
                 current_weight += self.weights[item_idx]
@@ -123,42 +127,38 @@ class KnapsackGA:
     
     def calculate_fitness(self, chromosome: List[int]) -> float:
         """
-        Calculate fitness with stronger penalty for constraint violation
+        Calculate fitness with penalty for constraint violation
+        Optimized version using list comprehensions and zip
         """
-        total_value = sum(bit * v for bit, v in zip(chromosome, self.values))
-        total_weight = sum(bit * w for bit, w in zip(chromosome, self.weights))
+        total_value = sum(v * bit for v, bit in zip(self.values, chromosome))
+        total_weight = sum(w * bit for w, bit in zip(self.weights, chromosome))
         
         if total_weight <= self.max_weight:
-            # Feasible solution - return actual value
             return float(total_value)
         else:
-            # Infeasible solution - strong penalty
             excess = total_weight - self.max_weight
             penalty = self.alpha * excess
             return float(total_value) - penalty
     
     def repair_chromosome(self, chromosome: List[int]) -> List[int]:
         """
-        Repair an infeasible chromosome by removing items until weight constraint is satisfied
-        Remove items with worst value-to-weight ratio first
+        Optimized repair of an infeasible chromosome
         """
-        if sum(bit * w for bit, w in zip(chromosome, self.weights)) <= self.max_weight:
-            return chromosome  # Already feasible
+        total_weight = sum(w * bit for w, bit in zip(self.weights, chromosome))
+        if total_weight <= self.max_weight:
+            return chromosome
         
         repaired = chromosome.copy()
+        selected = [i for i in range(self.n_items) if repaired[i] == 1]
         
-        # Get selected items with their ratios
-        selected_items = [(i, self.values[i] / self.weights[i]) 
-                         for i in range(self.n_items) if repaired[i] == 1]
-        
-        # Sort by ratio (worst first)
-        selected_items.sort(key=lambda x: x[1])
+        # Sort selected items by value-to-weight ratio (worst first)
+        selected.sort(key=lambda i: self.value_weight_ratio[i])
         
         # Remove items until feasible
-        for item_idx, _ in selected_items:
+        for item_idx in selected:
             repaired[item_idx] = 0
-            current_weight = sum(bit * w for bit, w in zip(repaired, self.weights))
-            if current_weight <= self.max_weight:
+            total_weight -= self.weights[item_idx]
+            if total_weight <= self.max_weight:
                 break
         
         return repaired
@@ -166,43 +166,31 @@ class KnapsackGA:
     def initialize_population(self) -> List[List[int]]:
         """Generate initial population with mix of strategies"""
         population = []
-        
-        # Create diverse initial population
         for i in range(self.population_size):
             chromosome = self.create_chromosome()
-            
-            # Repair some chromosomes to ensure we have feasible solutions
             if i < self.population_size // 4:  # Repair 25% of initial population
                 chromosome = self.repair_chromosome(chromosome)
-            
             population.append(chromosome)
-        
         return population
     
     def selection(self, population: List[List[int]], fitness_scores: List[float]) -> List[int]:
         """
-        Tournament selection with larger tournament size for better selection pressure
+        Tournament selection with optimized implementation
         """
-        tournament_size = min(5, len(population))  # Larger tournament
-        tournament_indices = random.sample(range(len(population)), tournament_size)
-        tournament_fitness = [fitness_scores[i] for i in tournament_indices]
-        
-        # Return chromosome with highest fitness in tournament
-        best_index = tournament_indices[tournament_fitness.index(max(tournament_fitness))]
-        return population[best_index].copy()
+        tournament_size = min(5, len(population))
+        tournament = random.sample(list(zip(population, fitness_scores)), tournament_size)
+        return max(tournament, key=lambda x: x[1])[0].copy()
     
     def crossover(self, parent1: List[int], parent2: List[int]) -> Tuple[List[int], List[int]]:
         """
-        Two-point crossover for better mixing
+        Optimized two-point crossover
         """
         if random.random() > self.crossover_rate:
             return parent1.copy(), parent2.copy()
         
-        # Choose two crossover points
         point1 = random.randint(1, self.n_items - 2)
         point2 = random.randint(point1 + 1, self.n_items - 1)
         
-        # Create children by swapping middle segment
         child1 = parent1[:point1] + parent2[point1:point2] + parent1[point2:]
         child2 = parent2[:point1] + parent1[point1:point2] + parent2[point2:]
         
@@ -210,16 +198,16 @@ class KnapsackGA:
     
     def mutate(self, chromosome: List[int]) -> List[int]:
         """
-        Improved mutation with different strategies
+        Optimized mutation implementation
         """
         mutated = chromosome.copy()
         
-        # Standard bit-flip mutation
+        # Bit-flip mutation
         for i in range(self.n_items):
             if random.random() < self.mutation_rate:
                 mutated[i] = 1 - mutated[i]
         
-        # Occasionally do swap mutation (swap two bits)
+        # Occasionally do swap mutation
         if random.random() < 0.1:
             i, j = random.sample(range(self.n_items), 2)
             mutated[i], mutated[j] = mutated[j], mutated[i]
@@ -228,7 +216,7 @@ class KnapsackGA:
     
     def evolve_generation(self, population: List[List[int]]) -> List[List[int]]:
         """
-        Evolve one generation with elitism and repair mechanism
+        Optimized generation evolution
         """
         # Calculate fitness for all chromosomes
         fitness_scores = [self.calculate_fitness(chrom) for chrom in population]
@@ -250,7 +238,7 @@ class KnapsackGA:
             parent1 = self.selection(population, fitness_scores)
             parent2 = self.selection(population, fitness_scores)
             
-            # Crossover
+           # Select parents
             child1, child2 = self.crossover(parent1, parent2)
             
             # Mutate
@@ -266,12 +254,11 @@ class KnapsackGA:
             # Add to new population
             new_population.extend([child1, child2])
         
-        # Trim to exact population size
         return new_population[:self.population_size]
     
     def solve(self) -> Tuple[List[int], int, Dict]:
         """
-        Run the Genetic Algorithm with improved tracking
+        Run the Genetic Algorithm with optimized implementation
         """
         print(f"\nStarting Genetic Algorithm...")
         print(f"Population size: {self.population_size}")
@@ -297,11 +284,10 @@ class KnapsackGA:
             fitness_scores = [self.calculate_fitness(chrom) for chrom in population]
             
             # Count feasible solutions
-            feasible_count = 0
-            for chrom in population:
-                weight = sum(bit * w for bit, w in zip(chrom, self.weights))
-                if weight <= self.max_weight:
-                    feasible_count += 1
+            feasible_count = sum(
+                1 for chrom in population 
+                if sum(w * bit for w, bit in zip(self.weights, chrom)) <= self.max_weight
+            )
             
             # Track statistics
             best_fitness = max(fitness_scores)
@@ -334,15 +320,14 @@ class KnapsackGA:
         
         # Ensure we return the best feasible solution found
         best_solution = best_overall_solution
-        best_weight = sum(bit * w for bit, w in zip(best_solution, self.weights))
+        best_weight = sum(w * bit for w, bit in zip(self.weights, best_solution))
         
         # If best solution is infeasible, try to repair it
         if best_weight > self.max_weight:
-            print("Best solution exceeds weight limit, attempting repair...")
             best_solution = self.repair_chromosome(best_solution)
         
         # Calculate final value (actual value, not fitness)
-        best_value = sum(bit * v for bit, v in zip(best_solution, self.values))
+        best_value = sum(v * bit for v, bit in zip(self.values, best_solution))
         
         # Statistics
         stats = {
@@ -357,12 +342,12 @@ class KnapsackGA:
     def print_solution(self, solution: List[int], total_value: int) -> None:
         """
         Print the solution with detailed analysis
+        (Identical to original version)
         """
         print(f"\nBEST SOLUTION FOUND:")
         print(f"Total Value: {total_value}")
         print(f"Solution: {' '.join(map(str, solution))}")
         
-        # Calculate details
         total_weight = sum(solution[i] * self.weights[i] for i in range(self.n_items))
         selected_items = [i for i in range(self.n_items) if solution[i] == 1]
         
@@ -370,7 +355,7 @@ class KnapsackGA:
         print(f"Total Weight: {total_weight}/{self.max_weight}")
         print(f"Selected Items: {selected_items}")
         print(f"Weight utilization: {total_weight/self.max_weight*100:.1f}%")
-        print(f"Constraint satisfied: {'✅ Yes' if total_weight <= self.max_weight else '❌ No'}")
+        print(f"Constraint satisfied: {'Yes' if total_weight <= self.max_weight else 'No'}")
         
         if selected_items:
             print(f"\nSelected Items Details:")
@@ -378,22 +363,61 @@ class KnapsackGA:
                 ratio = self.values[i] / self.weights[i]
                 print(f"  Item {i}: value={self.values[i]}, weight={self.weights[i]}, ratio={ratio:.3f}")
 
+def write_results_to_file(filename: str, solution: List[int], total_value: int, stats: Dict, ga):
+    """
+    Append results to a file named filename + '.txt'.
+    Creates file if it doesn't exist.
+    """
+    result_filename = f"{filename}Results.txt"
+    try:
+        with open(result_filename, 'a') as f:
+            f.write("=" * 50 + "\n")
+            f.write(f"Run Results for {filename}\n")
+            f.write(f"Total Value: {total_value}\n")
+
+            total_weight = sum(solution[i] * ga.weights[i] for i in range(ga.n_items))
+            f.write(f"Total Weight: {total_weight}/{ga.max_weight}\n")
+            f.write(f"Solution: {' '.join(map(str, solution))}\n")
+
+            selected_items = [i for i in range(ga.n_items) if solution[i] == 1]
+            f.write(f"Selected Items: {selected_items}\n")
+            f.write(f"Weight utilization: {total_weight / ga.max_weight * 100:.1f}%\n")
+            f.write(f"Constraint satisfied: {'✅ Yes' if total_weight <= ga.max_weight else '❌ No'}\n\n")
+
+            if selected_items:
+                f.write("Selected Items Details:\n")
+                for i in selected_items:
+                    ratio = ga.values[i] / ga.weights[i]
+                    f.write(f"  Item {i}: value={ga.values[i]}, weight={ga.weights[i]}, ratio={ratio:.3f}\n")
+
+            f.write(f"\nGenerations Run: {stats['generations_run']}\n")
+            f.write(f"Best Fitness History (last 5): {stats['best_fitness_history'][-5:]}\n")
+            f.write(f"Average Fitness History (last 5): {stats['avg_fitness_history'][-5:]}\n")
+            f.write(f"Feasible Count History (last 5): {stats['feasible_count_history'][-5:]}\n")
+            f.write("=" * 50 + "\n\n")
+
+        print(f"✅ Results appended to {result_filename}")
+    except Exception as e:
+        print(f"❌ Error writing to {result_filename}: {e}")
+
+
+    
 
 def main():
     """Main function to run the genetic algorithm"""
     print("KNAPSACK PROBLEM - GENETIC ALGORITHM SOLVER")
     print("=" * 50)
     
-    # Initialize GA with better parameters
+    # Initialize GA with optimized parameters
     ga = KnapsackGA(
-        population_size=200,    # Larger population
-        mutation_rate=0.02,     # Slightly higher mutation
+        population_size=200,    # Balanced population size
+        mutation_rate=0.02,     # Moderate mutation rate
         crossover_rate=0.8,
-        max_generations=1000    # More generations
+        max_generations=1000    # Sufficient generations
     )
     
     # Load problem
-    filename = "ks_40_0"
+    filename = "ks_40_0"  # Example file; change as needed
     ga.load_input(filename)
     
     # Solve the problem
@@ -404,6 +428,10 @@ def main():
     
     print(f"\nAlgorithm ran for {stats['generations_run']} generations")
     print("Done!")
+    
+    # Save results
+    write_results_to_file(filename, best_solution, best_value, stats, ga)
+
 
 if __name__ == "__main__":
     main()
