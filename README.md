@@ -1,7 +1,7 @@
 # Knapsack Problem Solver using Genetic Algorithm
 A highly optimized Python implementation of a Genetic Algorithm for solving the 0/1 Knapsack Problem. This project includes both a standalone Python class and an interactive Jupyter notebook for experimentation and visualization.
 ## Table of Contents
-•	Overview
+•	Overview\n
 •	Features
 •	Installation
 •	Usage
